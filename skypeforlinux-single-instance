@@ -1,0 +1,9 @@
+#!/bin/bash
+# Hopefully matches in title various locales, e.g. Russian
+# 'Skype для Linux (бета-версия) [4]'
+name="$(wmctrl -l | grep --only-matching 'Skype .* Linux')"
+if [ -n "$name" ]; then
+   wmctrl -R "$name"
+else
+   skypeforlinux
+fi
